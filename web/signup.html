@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+             <form action="SignupServlet" method="post">
+            <select name="role">
+                
+                <option value="judge"> judge</option>
+                <option value="lawyer">lawyer</option>
+                <option value="court registrar">court registrar</option>
+                <option value="police">police</option>
+                <option value="public prosecutor">public prosecutor</option>
+            </select>
+      
+          
+                <h2>Sign up</h2>
+                <label>username:</label>
+                <input name="uname" type="text">
+                <label>password:</label>
+                <input name="pass" type="text">
+                <button type="submit" name="smt">submit</button>
+            </form>
+        </div>
+    </body>
+</html>
