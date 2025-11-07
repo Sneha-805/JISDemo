@@ -12,6 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
+        <form action="statusservlet" method="post">
+            <p>please enter the cin of a case to view its status</p><!-- comment -->
+            CIN:<input type="text" name="cin">
+        </form>
     </body>
 </html>

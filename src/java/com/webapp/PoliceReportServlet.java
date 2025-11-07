@@ -28,6 +28,7 @@ public class PoliceReportServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String cin=request.getParameter("cin");
         String name_def=request.getParameter("name_def");
         String addr=request.getParameter("addr");
         String crime_typ=request.getParameter("crime_typ");
@@ -50,14 +51,16 @@ public class PoliceReportServlet extends HttpServlet {
                 "jdbc:mysql://localhost:3306/jis_demo", "root", "emaniel23");
 
             PreparedStatement ps = con.prepareStatement(
-                "INSERT INTO police_reports(defendant_name,defendant_addr,crime_typ,date_commit,crime_addr,arrst_off_name,date_arrst) VALUES(?,?,?,?,?,?,?)");
-            ps.setString(1,name_def );
-            ps.setString(2, addr);
-            ps.setString(3, crime_typ);
-            ps.setString(4,date_comt);
-            ps.setString(5,where);
-            ps.setString(6,arrst_off);
-            ps.setString(7,date_arrst);
+                "INSERT INTO police_reports(cin,defendant_name,defendant_addr,crime_typ,date_commit,crime_addr,arrst_off_name,date_arrst) VALUES(?,?,?,?,?,?,?,?)");
+            ps.setString(1, cin);
+            ps.setString(2,name_def );
+           
+            ps.setString(3, addr);
+            ps.setString(4, crime_typ);
+            ps.setString(5,date_comt);
+            ps.setString(6,where);
+            ps.setString(7,arrst_off);
+            ps.setString(8,date_arrst);
             int i = ps.executeUpdate();
             if (i > 0) {
                response.getWriter().println("Details submitted succesfully");
@@ -76,3 +79,4 @@ public class PoliceReportServlet extends HttpServlet {
    
 
 }
+

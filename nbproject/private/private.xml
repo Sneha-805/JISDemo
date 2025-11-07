@@ -9,8 +9,13 @@
             <file>file:/C:/Users/HP/Documents/NetBeansProjects/JISDemo/web/signup.html</file>
             <file>file:/C:/Users/HP/Documents/NetBeansProjects/JISDemo/src/java/com/webapp/LoginServlet.java</file>
             <file>file:/C:/Users/HP/Documents/NetBeansProjects/JISDemo/web/lawyerDashboard.jsp</file>
-            <file>file:/C:/Users/HP/Documents/NetBeansProjects/JISDemo/web/policeDashboard.jsp</file>
             <file>file:/C:/Users/HP/Documents/NetBeansProjects/JISDemo/src/java/com/webapp/PoliceReportServlet.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/JISDemo/web/policeDashboard.jsp</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/JISDemo/web/postCase.jsp</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/JISDemo/web/judgeDashboard.jsp</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/JISDemo/web/publicProsecutorDashboard.jsp</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/JISDemo/web/courtRegistrarDashboard.jsp</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/JISDemo/web/viewstatus.jsp</file>
         </group>
     </open-files>
 </project-private>
