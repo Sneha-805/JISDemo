@@ -27,6 +27,12 @@ public class SignupServlet extends HttpServlet {
         String role = request.getParameter("role");
         String username = request.getParameter("uname");
         String password = request.getParameter("pass");
+        String cpassword=request.getParameter("cpass");
+        if (!password.equals(cpassword)) {
+            request.setAttribute("errorMessage", "Passwords do not match!");
+            request.getRequestDispatcher("signup.jsp").forward(request, response);
+            return; 
+        }
 
         // Database connection setup
         try {

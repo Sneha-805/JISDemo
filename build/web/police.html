@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome | Judiciary Information System</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* ============================
+           BACKGROUND IMAGE CAROUSEL
+        ==============================*/
+        .bg-carousel {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-carousel img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            opacity: 0;
+            filter: brightness(60%) blur(1px);
+            animation: fadeAnim 21s infinite;
+        }
+
+        .bg-carousel img:nth-child(1) { animation-delay: 0s; }
+        .bg-carousel img:nth-child(2) { animation-delay: 7s; }
+        .bg-carousel img:nth-child(3) { animation-delay: 14s; }
+
+        @keyframes fadeAnim {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            30% { opacity: 1; }
+            40% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        /* ============================
+               TOP HEADER
+        ==============================*/
+        .topbar {
+            background: linear-gradient(to right, #ffca28, #ffa726, #fb8c00);
+            padding: 18px 35px;
+            color: #4e342e;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            z-index: 2;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+        }
+
+        /* ============================
+               WELCOME CARD
+        ==============================*/
+        .welcome-box {
+            width: 55%;
+            margin: 120px auto;
+            padding: 45px 35px;
+            background: rgba(255, 255, 255, 0.28);
+            border-radius: 22px;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 214, 0, 0.75);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .court-seal {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px auto;
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQELfF53kSmkhwVZGeAMByEwiI6SxKvs7kZHG46wWW6wTnAJRHMt8fEVD78lA&s')
+                        center/contain no-repeat;
+            filter: drop-shadow(0 5px 6px rgba(0,0,0,0.4));
+        }
+
+        .welcome-box h1 {
+            font-size: 42px;
+            color: #4e342e;
+            font-weight: 700;
+            text-shadow: 0 2px 3px rgba(255,255,255,0.7);
+        }
+
+        .role {
+            font-size: 34px;
+            font-weight: 700;
+            color: #bf360c;
+            margin-top: 8px;
+            text-shadow: 1px 2px 5px rgba(255,255,255,0.9);
+        }
+
+        .divider {
+            width: 85px;
+            height: 4px;
+            background: linear-gradient(to right, #ffca28, #f57f17, #ffa726);
+            margin: 18px auto;
+            border-radius: 2px;
+        }
+
+        .welcome-box p {
+            font-size: 18px;
+            color: #3e2723;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Background Carousel -->
+    <div class="bg-carousel">
+        <img src="https://www.bmu.edu.in/wp-content/uploads/2024/11/Court-Hierarchy-in-Indias-Legal-System-.webp">
+        <img src="https://media.istockphoto.com/id/1008159054/photo/law-and-justice.jpg?s=612x612&w=0&k=20&c=cJEnc4NBJ4WwCm53FDHBquLSQA_TIPmTeayveA7U4_g=">
+        <img src="https://media.istockphoto.com/id/1731160977/photo/judge-or-legal-advisor-lawyer-examining-and-signing-legal-documents.jpg?s=612x612&w=0&k=20&c=TefJAuQEQ8CY8waO2j4AH1O0hRYuFbaVSf-roUHpeGs=>
+    </div>
+
+   
+    <div class="topbar">
+        Judicial Information System (JIS)
+    </div>
+
+    <!-- Welcome Card -->
+    <div class="welcome-box">
+
+        <div class="court-seal"></div>
+
+        <h1>WELCOME</h1>
+
+        <!-- ⭐ CHANGE THIS TO Registrar / Lawyer / Judge / Police / Prosecutor -->
+        <div class="role">POLICE
+        </div>
+
+        <div class="divider"></div>
+
+        <p>Digital Court Management System</p>
+        <p>Secure • Transparent • Efficient</p>
+        <p style="margin-top:12px;">
+            Access your dashboard using the side navigation.
+        </p>
+
+    </div>
+
+</body>
+</html>

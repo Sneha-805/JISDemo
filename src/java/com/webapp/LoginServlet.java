@@ -45,24 +45,34 @@ public class LoginServlet extends HttpServlet {
 
             ResultSet rs = ps.executeQuery();
 
-            if (rs.next()) {
-                HttpSession session = request.getSession();
-                session.setAttribute("username", username);
-                session.setAttribute("role", role);
-                if (role.equals("judge")) {
-                    response.sendRedirect("judgeDashboard.jsp");
-                } else if (role.equals("lawyer")) {
-                    response.sendRedirect("lawyerDashboard.jsp");
-                }  else if (role.equals("court registrar")) {
-                    response.sendRedirect("courtRegistrarDashboard.jsp");
-                }  else if (role.equals("police")) {
-                    response.sendRedirect("policeDashboard.jsp");
-                }  else if (role.equals("publicProsecutor")) {
-                    response.sendRedirect("publicProsecutorDashboard.jsp");
-                }else {
-                    response.sendRedirect("userDashboard.jsp");
-                }
+           if (rs.next()) {
+            
+            int userId = rs.getInt("id");            
+            String dbRole = rs.getString("role");      
+
+            HttpSession session = request.getSession();
+            session.setAttribute("userId", userId);
+            session.setAttribute("username", rs.getString("username"));
+            session.setAttribute("role", dbRole);
+            request.setAttribute("username", rs.getString("username"));
+           
+
+          
+            if ("judge".equalsIgnoreCase(dbRole)) {
+                 request.getRequestDispatcher("judgeDashboard.jsp").forward(request, response);
+            } else if ("lawyer".equalsIgnoreCase(dbRole)) {
+                response.sendRedirect("lawyerDashboard.jsp");
+            } else if ("court registrar".equalsIgnoreCase(dbRole)) {
+                response.sendRedirect("courtRegistrarDashboard.jsp");
+            } else if ("police".equalsIgnoreCase(dbRole)) {
+                response.sendRedirect("policeDashboard.jsp");
+            } else if ("public Prosecutor".equalsIgnoreCase(dbRole)) {
+                response.sendRedirect("publicProsecutorDashboard.jsp");
             } else {
+                response.sendRedirect("userDashboard.jsp");
+            }
+        }
+     else {
                 out.println("<h3 style='color:red;'>Invalid credentials or role!</h3>");
             }
 

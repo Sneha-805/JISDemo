@@ -15,6 +15,8 @@ import jakarta.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.time.LocalDate;
+
 
 
 /**
@@ -28,7 +30,7 @@ public class PoliceReportServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String cin=request.getParameter("cin");
+        
         String name_def=request.getParameter("name_def");
         String addr=request.getParameter("addr");
         String crime_typ=request.getParameter("crime_typ");
@@ -36,6 +38,8 @@ public class PoliceReportServlet extends HttpServlet {
         String where =request.getParameter("where");
         String arrst_off=request.getParameter("arrst_off");
         String date_arrst=request.getParameter("date_arrst");
+        String message="";
+        HttpSession session = request.getSession();
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         if (name_def == null || name_def.isBlank() || addr == null || addr.isBlank()
@@ -43,16 +47,21 @@ public class PoliceReportServlet extends HttpServlet {
             out.println("Required fields are missing.");
             return;
         }
-        if (addr != null) addr = addr.trim();
+       
         if (where != null) where = where.trim();
+        String caseType = crime_typ.trim().toUpperCase();
+        int year = LocalDate.now().getYear();
+        long uniqueNum = System.currentTimeMillis() % 1000000;
+        String formattedNum = String.format("%06d", uniqueNum);
+        String cin = String.format("%d-%s-%s", year, caseType, formattedNum);
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/jis_demo", "root", "emaniel23");
 
             PreparedStatement ps = con.prepareStatement(
-                "INSERT INTO police_reports(cin,defendant_name,defendant_addr,crime_typ,date_commit,crime_addr,arrst_off_name,date_arrst) VALUES(?,?,?,?,?,?,?,?)");
-            ps.setString(1, cin);
+                "INSERT INTO police_reports(cin,defendant_name,defendant_addr,crime_typ,date_commit,crime_addr,arrst_off_name,date_arrst,posted_by) VALUES(?,?,?,?,?,?,?,?,?)");
+            ps.setString(1,cin);
             ps.setString(2,name_def );
            
             ps.setString(3, addr);
@@ -61,16 +70,31 @@ public class PoliceReportServlet extends HttpServlet {
             ps.setString(6,where);
             ps.setString(7,arrst_off);
             ps.setString(8,date_arrst);
+            ps.setString(9, (String) session.getAttribute("username"));
             int i = ps.executeUpdate();
+          
+            
+
             if (i > 0) {
-               response.getWriter().println("Details submitted succesfully");
+                message = "Generated CIN (Note it for future use)";
+                 session.setAttribute("cin", cin);
+                 session.setAttribute("postMessage", message);
+                    response.sendRedirect("policeDashboard.jsp");
+                    return;
               
             } else {
-                response.getWriter().println("Error! Details not submitted");
+                message = "CIN not generated ";
+                session.setAttribute("postMessage", message);
+                response.sendRedirect("policeDashboard.jsp");
+                return;
             }
+            
+
+             
+
           
 
-            con.close();
+        
         } catch (Exception e) {
             e.printStackTrace(out);
         }
