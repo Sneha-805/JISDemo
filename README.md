@@ -128,12 +128,6 @@ http://localhost:8080/JIS
 
 ---
 
-### 📄 Upload Documents of Proof
-[View Upload Documents](Screenshots/registrar_upload_documents.png)  
-![Upload Documents](Screenshots/registrar_upload_documents.png)
-
----
-
 ### 📅 Update Hearing Dates
 [View Hearing Dates](Screenshots/registrar_upload_hearing_dates.png)  
 ![Update Hearing Dates](Screenshots/registrar_upload_hearing_dates.png)
@@ -202,7 +196,7 @@ http://localhost:8080/JIS
 * Access previous case records
 * Post final verdict
 
-### 👨‍⚖️ Lawyer / Public Dashboard
+### 👨‍⚖️ Lawyer Dashboard
 
 * View assigned cases
 * Access historical case details
@@ -210,26 +204,20 @@ http://localhost:8080/JIS
 > 📌 *Note:* Actual screenshots can be found in the `screenshots/` folder of this repository.
 
 ---
+### Project structure
 
-## 📁 Project Structure (Simplified)
+JISDemo/
+├── build/                  # Compiled classes and temporary build files
+├── dist/                   # Generated WAR file for deployment
+├── documentation/          # Project documents (URD, SRS, Report, Diagrams)
+├── nbproject/              # NetBeans project configuration files
+├── Screenshots/            # UI screenshots used in README
+├── src/                    # Java source files (Servlets, DB logic)
+├── test/                   # Test cases and testing files
+├── web/                    # JSP pages, CSS, JS, and static resources
+├── build.html              # Build-related configuration file
+└── README.md               # Project documentation (this file)
 
-```
-JIS/
-├── src/
-│   ├── servlets/
-│   └── database/
-├── web/
-│   ├── jsp/
-│   └── css/
-├── WEB-INF/
-│   └── web.xml
-├── documentation/
-│   ├── URD.pdf
-│   ├── SRS.pdf
-│   ├── Project_Report.pdf
-│   └── Diagrams/
-└── README.md
-```
 
 ---
 
@@ -268,5 +256,6 @@ The Judiciary Information System (JIS) demonstrates how web technologies like JS
 ## 📜 License
 
 This project is developed for academic purposes only.
+
 
 
