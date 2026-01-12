@@ -25,7 +25,6 @@ JIS enables different judicial stakeholders—**Police, Court Registrars, Judges
 * **Court Registrar** – Manage cases, assign judges/lawyers, upload documents, schedule hearings
 * **Judge** – View assigned cases, access past cases, post final verdicts
 * **Lawyer** – View assigned cases, access previous cases (chargeable)
-* **Public Prosecutor** – View assigned government cases and historical case details
 
 ---
 
@@ -256,6 +255,7 @@ The Judiciary Information System (JIS) demonstrates how web technologies like JS
 ## 📜 License
 
 This project is developed for academic purposes only.
+
 
 
 
